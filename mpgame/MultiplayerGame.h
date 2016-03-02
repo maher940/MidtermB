@@ -528,7 +528,9 @@ public:
 	void			ServerClientConnect( int clientNum );
 
 	void			PlayerStats( int clientNum, char *data, const int len );
+	//void			ReturnNum(int num);
 
+	void			Ballholder ();
 	void			AddTeamScore ( int team, int amount );
 	void			AddPlayerScore( idPlayer* player, int amount );
 	void			AddPlayerTeamScore( idPlayer* player, int amount );

@@ -633,8 +633,10 @@ bool idInventory::DetermineAmmoAvailability( idPlayer* owner, const char *ammoNa
 	// Make sure the clip info is updated.
 	if ( owner->weapon ) {
 		clip[ owner->GetCurrentWeapon( ) ] = owner->weapon->AmmoInClip( );
+		//gameLocal.mpGame.Ballholder(owner, owner->GetCurrentWeapon()); 
 	}
-
+	
+	
 	 if ( !idStr::Icmpn( ammoName, "start_ammo_", 11 ) ) {
 		realAmmoName.StripLeading( "start_" );
 	}
@@ -11446,6 +11448,7 @@ idPlayer::Event_GetCurrentWeapon
 void idPlayer::Event_GetCurrentWeapon( void ) {
 	if ( currentWeapon >= 0 ) {
 		idThread::ReturnString( spawnArgs.GetString( va( "def_weapon%d", currentWeapon ) ) );
+		//gameLocal.mpGame.Ballholder(
 	} else {
 		idThread::ReturnString( "" );
 	}

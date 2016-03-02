@@ -7,6 +7,7 @@
 #pragma hdrstop
 
 #include "Game_local.h"
+#include "MultiplayerGame.h"
 
 idCVar g_spectatorChat( "g_spectatorChat", "0", CVAR_GAME | CVAR_ARCHIVE | CVAR_BOOL, "let spectators talk to everyone during game" );
 
@@ -1782,6 +1783,19 @@ idPlayer* idMultiplayerGame::FragLeader( void ) {
 	}
 	
 	return rankedPlayers[ 0 ].First();
+}
+/*
+================
+idMultiplayerGame::Ballholder
+================
+*/
+void idMultiplayerGame::Ballholder(){
+	idPlayer* player = gameLocal.GetLocalPlayer();
+	
+
+	if(player->GetCurrentWeapon() == 1){
+		AddPlayerScore ( player, 1);
+	}
 }
 
 /*
