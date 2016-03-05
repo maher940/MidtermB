@@ -327,6 +327,7 @@ void idItem::Think( void ) {
 	if( !(simpleItem && pickedUp) ) {
 		UpdateVisuals();
 		Present();
+
 	}
 }
 
@@ -2027,7 +2028,7 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 
 	int teamPowerup;
 	int enemyPowerup;
-
+	//int time_held;
 	bool canPickup = ( team == player->team );
 	
 	switch ( player->team ) {
@@ -2035,6 +2036,7 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 		case TEAM_MARINE:
 			teamPowerup  = POWERUP_CTF_MARINEFLAG;
 			enemyPowerup = POWERUP_CTF_STROGGFLAG;
+
 			break;
 			
 		case TEAM_STROGG:
@@ -2051,7 +2053,7 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 	
 	// If the player runs over their own flag the only thing they
 	// can do is score or return it.
-
+	
 	// when the player touches the one flag, he always gets it
 	if ( canPickup ) {
 		// If the flag was dropped, return it		
@@ -2063,8 +2065,15 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 // squirrel: Mode-agnostic buymenus
 			player->GiveCash( (float)gameLocal.mpGame.mpBuyingManager.GetIntValueForKey( "playerCashAward_flagReturned", 0 ) );
 // RITUAL END
-		} else if ( player->PowerUpActive ( enemyPowerup ) ) {
+		} 
+		//else if(!dropped){
+			//player->isBallholder(player);
+		//}
+		
+		else if ( player->PowerUpActive ( enemyPowerup ) ) {
 			// If they have the enemy flag then they score
+			
+			//gameLocal.mpGame.AddTeamScore( player->team, time_held );
 			if ( !gameLocal.mpGame.CanCapture ( player->team ) ) {
 				return false;
 			}
@@ -2073,9 +2082,9 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 			
 			gameLocal.mpGame.FlagCaptured( player );
 		}
+
 		return false;
 	} 
-
 	// only pickup one flag in arena CTF
 	if( ( gameLocal.gameType == GAME_1F_CTF || gameLocal.gameType == GAME_ARENA_1F_CTF ) && team != TEAM_MAX ) {
 		return false;
@@ -2086,6 +2095,8 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 // squirrel: Mode-agnostic buymenus
 	player->GiveCash( (float)gameLocal.mpGame.mpBuyingManager.GetIntValueForKey( "playerCashAward_flagStolen", 0 ) );
 // RITUAL END
+	
+
 	return true;
 }
 
@@ -2108,7 +2119,7 @@ bool rvItemCTFFlag::Pickup( idPlayer *player ) {
 	if ( gameLocal.isServer ) {
 		SendPickupMsg( player->entityNumber );
 	}
-
+	//int time_held = 1;
 	// Check for global acquire sounds in multiplayer
 	if ( gameLocal.isMultiplayer && spawnArgs.GetBool( "globalAcquireSound" ) ) {
 		gameLocal.mpGame.PlayGlobalItemAcquireSound( entityDefNumber );
@@ -2127,7 +2138,15 @@ bool rvItemCTFFlag::Pickup( idPlayer *player ) {
 
 	gameLocal.mpGame.SetFlagEntity( NULL, team );
 
-	gameLocal.mpGame.AddPlayerTeamScore( player, 1 );
+	gameLocal.mpGame.AddPlayerTeamScore( player, 10 );
+
+	player->Ballholder(player);
+
+	//player->inventory.Give(player, 
+	player->GiveItem("weapon_gauntlet");
+	//player->inventory.weapons= dict.GetInt( "weapon_bits", "0" );
+	//player->Give( player, dict, "weapon_guantlet", dict.GetString( "weapon_gauntlet" ), NULL, false );
+	
 
 	if( gameLocal.gameType == GAME_CTF || gameLocal.gameType == GAME_ARENA_CTF ) { 
 		((rvCTFGameState*)gameLocal.mpGame.GetGameState())->SetFlagState( team, FS_TAKEN );
@@ -2145,6 +2164,10 @@ bool rvItemCTFFlag::Pickup( idPlayer *player ) {
 	
 	return true;
 }
+//void rvItemCTFFlag::UpdatePowerups(idPlayer* player){
+	//void rvItemCTFFlag::UpdateEffects
+
+//}
 
 /*
 ================

@@ -8450,7 +8450,7 @@ float idMultiplayerGame::GetPlayerDeadZoneScore( idPlayer* player ) {
 }
 
 int idMultiplayerGame::GetPlayerTime( idPlayer* player ) {
-	return ( gameLocal.time - player->GetConnectTime() ) / 60000;
+	return  (gameLocal.time - player->GetConnectTime() ) / 60000;
 }
 
 int idMultiplayerGame::GetTeamScore( idPlayer* player ) {

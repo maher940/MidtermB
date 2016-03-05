@@ -208,6 +208,7 @@ public:
 	
 	static void				ResetFlag( int type );
 	virtual void			Think( void );
+	void					UpdatePowerups(idPlayer* player);
 
 	virtual bool			Collide( const trace_t &collision, const idVec3 &velocity );
 

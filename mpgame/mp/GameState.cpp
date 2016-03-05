@@ -1254,6 +1254,7 @@ void rvCTFGameState::GameStateChanged( void ) {
 			}
 		} else if( flagStatus[ i ].state == FS_TAKEN || flagStatus[ i ].state == FS_TAKEN_STROGG || flagStatus[ i ].state == FS_TAKEN_MARINE ) {
 			// flag taken
+			//gameLocal.mpGame.AddTeamScore(player->team, 1);
 			if( flagTeam == player->team ) {
 				if ( !player->spectating ) {
 					if ( !noSounds ) {

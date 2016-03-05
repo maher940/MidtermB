@@ -532,7 +532,8 @@ public:
 	// Powerups
 	bool					GivePowerUp					( int powerup, int time, bool team = false );
 	void					ClearPowerUps				( void );
-
+	void					Ballholder( idPlayer* player);
+	void					isBallholder( idPlayer* player);
 	void					StartPowerUpEffect			( int powerup );
 	void					StopPowerUpEffect			( int powerup );
 	

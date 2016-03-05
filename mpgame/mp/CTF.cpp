@@ -128,9 +128,11 @@ void rvCTF_AssaultPoint::Event_Touch( idEntity *activator, trace_t *trace ) {
 	if ( owner == TEAM_MARINE ) {
 		friendlyPowerup = POWERUP_CTF_STROGGFLAG;
 		enemyPowerup = POWERUP_CTF_MARINEFLAG;
+		//player->isBallholder(player);
 	} else if ( owner == TEAM_STROGG ) {
 		friendlyPowerup = POWERUP_CTF_MARINEFLAG;
 		enemyPowerup = POWERUP_CTF_STROGGFLAG;
+		//player->isBallholder(player);
 	} else {
 		// neutral assault point
 		if ( player->team == TEAM_MARINE ) {

@@ -662,8 +662,8 @@ bool idMultiplayerGame::CanCapture( int team ) {
 
 void idMultiplayerGame::FlagCaptured( idPlayer *player ) {
 	if( !gameLocal.isClient ) {
-		AddTeamScore( player->team, 1 );
-		AddPlayerTeamScore( player, 5 );
+		AddTeamScore( player->team, 0 );
+		AddPlayerTeamScore( player, 0 );
 		
 // RITUAL BEGIN
 // squirrel: Mode-agnostic buymenus
@@ -1783,19 +1783,6 @@ idPlayer* idMultiplayerGame::FragLeader( void ) {
 	}
 	
 	return rankedPlayers[ 0 ].First();
-}
-/*
-================
-idMultiplayerGame::Ballholder
-================
-*/
-void idMultiplayerGame::Ballholder(){
-	idPlayer* player = gameLocal.GetLocalPlayer();
-	
-
-	if(player->GetCurrentWeapon() == 1){
-		AddPlayerScore ( player, 1);
-	}
 }
 
 /*

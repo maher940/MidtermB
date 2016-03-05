@@ -206,11 +206,13 @@ public:
 	void					Spawn();
 	virtual bool			GiveToPlayer ( idPlayer* player );
 	virtual bool			Pickup( idPlayer *player );
+	//bool					Ballholder( idPlayer *player);
 	
 	static void				ResetFlag( int type );
 	virtual void			Think( void );
 
 	virtual bool			Collide( const trace_t &collision, const idVec3 &velocity );
+	void					UpdatePowerups(idPlayer* player);
 
 private:
 	int						team;

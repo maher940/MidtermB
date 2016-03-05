@@ -4299,6 +4299,7 @@ bool idPlayer::GiveItem( idItem *item ) {
 						gave = true;
 					} else if ( !dropped//not a dropped weapon
 						&& gameLocal.IsWeaponsStayOn() ) {
+							gave =true;
 						//if failed to give weapon, don't give anything else with the weapon
 						skipRestOfKeys = true;
 					}
@@ -4857,7 +4858,29 @@ bool idPlayer::GivePowerUp( int powerup, int time, bool team ) {
 
 	return true;
 }
+/*
+==============
+idPlayer::Ballholder
+==============
+*/
+void idPlayer::Ballholder(idPlayer* player){
+	gameLocal.mpGame.AddTeamScore(player->team, 1);
+	//if(player->inventory.powerups == POWERUP_CTF_MARINEFLAG || POWERUP_CTF_STROGGFLAG ||POWERUP_CTF_ONEFLAG){
+		//player->isBallholder(player);
+	//}
+}
 
+/*
+==============
+idPlayer::isBallholder
+==============
+*/
+void idPlayer::isBallholder(idPlayer* player){
+	//while(player->inventory.powerups == POWERUP_CTF_MARINEFLAG || POWERUP_CTF_STROGGFLAG ||POWERUP_CTF_ONEFLAG)
+	//{
+		//player->Ballholder(player);
+	//}
+}
 /*
 ==============
 idPlayer::ClearPowerup
@@ -4927,6 +4950,8 @@ void idPlayer::UpdatePowerUps( void ) {
 	bool playWearoffSound = false;
 	
 	idPlayer *p = gameLocal.GetLocalPlayer();
+	//gameLocal.mpGame.AddTeamScore(p->team, 1);
+	//p->team
 	if ( p && ( p->spectating && p->spectator == entityNumber || !p->spectating && p->entityNumber == entityNumber ) ) {
 		playWearoffSound = true;
 	}
@@ -4956,6 +4981,12 @@ void idPlayer::UpdatePowerUps( void ) {
 		}
 	}
 
+	//if( PowerUpActive(POWERUP_CTF_MARINEFLAG || POWERUP_CTF_STROGGFLAG ||POWERUP_CTF_ONEFLAG)){
+		// p->isBallholder(p);
+		//gameLocal.mpGame.AddTeamScore(p->team, 1);
+		//UpdatePowerUps();
+
+	//}
 	// PLay wear off sound?
 	if ( gameLocal.isNewFrame && wearoff != -1 ) {
 		if ( (inventory.powerupEndTime[wearoff] - gameLocal.time) < POWERUP_BLINKS * POWERUP_BLINK_TIME ) {
@@ -6326,7 +6357,11 @@ void idPlayer::UpdateWeapon( void ) {
 
 	assert( !spectating );
 
-	// clients need to wait till the weapon and it's world model entity
+	// clients need to wait till the 
+	
+	
+	
+	//and it's world model entity
 	// are present and synchronized ( weapon.worldModel idEntityPtr to idAnimatedEntity )
 	if ( gameLocal.isClient && (!weaponViewModel || !weaponWorldModel) ) {
 		return;
@@ -8305,7 +8340,7 @@ void idPlayer::UpdateTeamPowerups( bool isBuying ) {
 
 				player->GivePowerUp( powerup, time, true );
 			}
-
+		
 			gameLocal.mpGame.teamPowerups[team][i].update = false;
 		}
 	}

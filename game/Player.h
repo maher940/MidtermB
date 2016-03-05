@@ -233,6 +233,9 @@ public:
 
 	void					Clear( void );
 	void					GivePowerUp( idPlayer* player, int powerup, int msec );
+	//void					Ballholder( idPlayer* player);
+	void					isBallholder( idPlayer* player);
+
 	void					ClearPowerUps( void );
 	void					GetPersistantData( idDict &dict );
 	void					RestoreInventory( idPlayer *owner, const idDict &dict );
