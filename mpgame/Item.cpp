@@ -2069,11 +2069,13 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 		//else if(!dropped){
 			//player->isBallholder(player);
 		//}
-		
+		else if( !dropped){
+			gameLocal.mpGame.AddTeamScore( player->team, 1 );
+		}
 		else if ( player->PowerUpActive ( enemyPowerup ) ) {
 			// If they have the enemy flag then they score
 			
-			//gameLocal.mpGame.AddTeamScore( player->team, time_held );
+			//gameLocal.mpGame.AddTeamScore( player->team, 1 );
 			if ( !gameLocal.mpGame.CanCapture ( player->team ) ) {
 				return false;
 			}
@@ -2138,14 +2140,12 @@ bool rvItemCTFFlag::Pickup( idPlayer *player ) {
 
 	gameLocal.mpGame.SetFlagEntity( NULL, team );
 
-	gameLocal.mpGame.AddPlayerTeamScore( player, 10 );
+	//gameLocal.mpGame.AddPlayerTeamScore( player, 10 );
 
 	player->Ballholder(player);
 
-	//player->inventory.Give(player, 
 	player->GiveItem("weapon_gauntlet");
-	//player->inventory.weapons= dict.GetInt( "weapon_bits", "0" );
-	//player->Give( player, dict, "weapon_guantlet", dict.GetString( "weapon_gauntlet" ), NULL, false );
+	
 	
 
 	if( gameLocal.gameType == GAME_CTF || gameLocal.gameType == GAME_ARENA_CTF ) { 

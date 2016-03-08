@@ -4948,9 +4948,31 @@ void idPlayer::UpdatePowerUps( void ) {
 	int i;
 	int wearoff = -1;
 	bool playWearoffSound = false;
+	int j =1;
 	
 	idPlayer *p = gameLocal.GetLocalPlayer();
-	//gameLocal.mpGame.AddTeamScore(p->team, 1);
+	p->powerupcooldown;
+	//PowerUpActive ( POWERUP_REGENERATION ) || PowerUpActive ( POWERUP_GUARD )
+	if( PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)){
+		// p->isBallholder(p);
+		
+		
+		p->powerupcooldown++;
+		if(p->powerupcooldown%50 == 0){
+			//gameLocal.mpGame.AddTeamScore(p->team, 10);
+		//if(p->powerupcooldown > 10){
+			//gameLocal.mpGame.AddTeamScore(p->team, 1);
+		//}
+			gameLocal.mpGame.AddTeamScore(p->team, 1);
+			
+
+		}
+		//return p->powerupcooldown;
+		//else {
+		//	powerupcooldown--;
+		//}
+	}
+	
 	//p->team
 	if ( p && ( p->spectating && p->spectator == entityNumber || !p->spectating && p->entityNumber == entityNumber ) ) {
 		playWearoffSound = true;
@@ -4980,13 +5002,7 @@ void idPlayer::UpdatePowerUps( void ) {
 			ClearPowerup( i );
 		}
 	}
-
-	//if( PowerUpActive(POWERUP_CTF_MARINEFLAG || POWERUP_CTF_STROGGFLAG ||POWERUP_CTF_ONEFLAG)){
-		// p->isBallholder(p);
-		//gameLocal.mpGame.AddTeamScore(p->team, 1);
-		//UpdatePowerUps();
-
-	//}
+	
 	// PLay wear off sound?
 	if ( gameLocal.isNewFrame && wearoff != -1 ) {
 		if ( (inventory.powerupEndTime[wearoff] - gameLocal.time) < POWERUP_BLINKS * POWERUP_BLINK_TIME ) {

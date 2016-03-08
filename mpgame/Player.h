@@ -412,6 +412,7 @@ public:
 	float					buyMenuCash;
 
 	float					handicap; // multiplier for damage/health
+	int						powerupcooldown;
 
 public:
 	CLASS_PROTOTYPE( idPlayer );
