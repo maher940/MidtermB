@@ -655,7 +655,7 @@ bool idMultiplayerGame::CanCapture( int team ) {
 
 void idMultiplayerGame::FlagCaptured( idPlayer *player ) {
 	if( !gameLocal.isClient ) {
-		AddTeamScore( player->team, 1 );
+		//AddTeamScore( player->team, 1 );
 		AddPlayerTeamScore( player, 5 );
 		
 // RITUAL BEGIN

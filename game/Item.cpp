@@ -2116,7 +2116,7 @@ bool rvItemCTFFlag::Pickup( idPlayer *player ) {
 
 	gameLocal.mpGame.SetFlagEntity( NULL, team );
 
-	gameLocal.mpGame.AddPlayerTeamScore( player, 1 );
+	//gameLocal.mpGame.AddPlayerTeamScore( player, 1 );
 
 	if( gameLocal.gameType == GAME_CTF || gameLocal.gameType == GAME_ARENA_CTF ) { 
 		((rvCTFGameState*)gameLocal.mpGame.GetGameState())->SetFlagState( team, FS_TAKEN );

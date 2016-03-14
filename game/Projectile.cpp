@@ -739,7 +739,7 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
  	// direction of projectile
  	dir = velocity;
  	dir.Normalize();
- 
+	
  	// projectiles can apply an additional impulse next to the rigid body physics impulse
 // RAVEN BEGIN
 // abahr: added call to SkipDamageImpulse changed where push comes from

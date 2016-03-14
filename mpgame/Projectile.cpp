@@ -776,6 +776,22 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
  	dir = velocity;
  	dir.Normalize();
  
+	//can stick
+	//if(ent->spawnArgs.GetBool("stick")){
+		// int hitJoint = CLIPMODEL_ID_TO_JOINT_HANDLE(collision.c.id);
+		// idEntity spot = static_cast<idEntity>(hitJoint);
+		 //ind(gameLocal.entities[collision->c.entityNum]
+
+	//}
+	//his name is thomas freehill
+
+
+
+
+
+
+
+
  	// projectiles can apply an additional impulse next to the rigid body physics impulse
 // RAVEN BEGIN
 // abahr: added call to SkipDamageImpulse changed where push comes from
@@ -1275,7 +1291,7 @@ void idProjectile::Explode( const trace_t *collision, const bool showExplodeFX, 
 
 	// bind the projectile to the impact entity if necesary
 	if ( collision && gameLocal.entities[collision->c.entityNum] && spawnArgs.GetBool( "bindOnImpact" ) ) {
-		Bind( gameLocal.entities[collision->c.entityNum], true );
+		Bind( gameLocal.entities[collision->c.id], true );
 	}
 
 	if ( predictedProjectiles ) {

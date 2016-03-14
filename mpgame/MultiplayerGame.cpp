@@ -665,6 +665,7 @@ void idMultiplayerGame::FlagCaptured( idPlayer *player ) {
 		AddTeamScore( player->team, 0 );
 		AddPlayerTeamScore( player, 0 );
 		
+		//player->inventory.weapons
 // RITUAL BEGIN
 // squirrel: Mode-agnostic buymenus
 		if( gameLocal.mpGame.IsBuyingAllowedInTheCurrentGameMode() )

@@ -4465,6 +4465,19 @@ float idPlayer::PowerUpModifier( int type ) {
 			}
 		}
 	}
+	if( (PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG))){
+		
+		switch ( type ) {
+			case PMOD_SPEED:	
+				mod *= 1.5f;
+				break;
+
+			case PMOD_FIRERATE:
+				mod *= 5.0f;
+				break;
+		}
+	}
+	
 
 	return mod;
 }
@@ -4952,12 +4965,15 @@ void idPlayer::UpdatePowerUps( void ) {
 	
 	idPlayer *p = gameLocal.GetLocalPlayer();
 	p->powerupcooldown;
+	
 	//PowerUpActive ( POWERUP_REGENERATION ) || PowerUpActive ( POWERUP_GUARD )
-	if( PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)){
+	if( (PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)) && p->currentWeapon ==10){
 		// p->isBallholder(p);
 		
 		
 		p->powerupcooldown++;
+		p->physicsObj.SetMaxJumpHeight( 200);
+		
 		if(p->powerupcooldown%50 == 0){
 			//gameLocal.mpGame.AddTeamScore(p->team, 10);
 		//if(p->powerupcooldown > 10){

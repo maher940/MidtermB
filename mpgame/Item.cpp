@@ -9,6 +9,7 @@
 #include "Game_local.h"
 
 
+
 /*
 ===============================================================================
 
@@ -655,14 +656,13 @@ bool idItem::Pickup( idPlayer *player ) {
 	if ( gameLocal.isClient ) {
 		return false;
 	}
-
+	
 	int givenToPlayer = spawnArgs.GetInt( "givenToPlayer", "-1" );
 	if ( player == NULL || ( givenToPlayer != -1 && givenToPlayer != player->entityNumber ) ) {
 		// idPlayer::GiveItem spawns an idItem for pickup, which appears at the origin before being picked
 		// and could sometimes be picked by someone else, particularly in buy mode when there is a play spawn sitting on the origin ;-)
 		return false;
 	}
-
 	if ( !GiveToPlayer( player ) ) {
 		return false;
 	}
@@ -682,7 +682,7 @@ bool idItem::Pickup( idPlayer *player ) {
 	ActivateTargets( player );
 
 	player->lastPickupTime = gameLocal.time;
-
+	//player->currentWeapon
 	//if a placed item and si_weaponStay is on and we're a weapon, don't remove and respawn
 	if ( gameLocal.IsMultiplayer() ) {
 		if ( !dropped )	{
@@ -2029,6 +2029,7 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 	int teamPowerup;
 	int enemyPowerup;
 	//int time_held;
+	//
 	bool canPickup = ( team == player->team );
 	
 	switch ( player->team ) {
@@ -2066,12 +2067,7 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 			player->GiveCash( (float)gameLocal.mpGame.mpBuyingManager.GetIntValueForKey( "playerCashAward_flagReturned", 0 ) );
 // RITUAL END
 		} 
-		//else if(!dropped){
-			//player->isBallholder(player);
-		//}
-		else if( !dropped){
-			gameLocal.mpGame.AddTeamScore( player->team, 1 );
-		}
+	
 		else if ( player->PowerUpActive ( enemyPowerup ) ) {
 			// If they have the enemy flag then they score
 			
