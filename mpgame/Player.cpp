@@ -4116,6 +4116,16 @@ void idPlayer::FireWeapon( void ) {
 					//idVec3 vel = player->GetPhysics()->GetLinearVelocity();
 					//vel *= 1000000.0f;
 					//physicsObj.command.forwardmove
+					//player->playerView.
+					idVec3 kick;									//idVec3 (2000, 0, 0);
+					viewAngles.ToVectors( &kick, NULL, NULL );
+					kick.Normalize();
+ 					kick *= g_knockback.GetFloat() * 50 * 1/ 200.0f;
+			
+					physicsObj.SetLinearVelocity( physicsObj.GetLinearVelocity() + kick );
+
+			// set the timer so that the player can't cancel out the movement immediately
+ 					physicsObj.SetKnockBack( idMath::ClampInt( 50, 200, 1 * 2 ) );
 					
 				}
 				pfl.attackHeld = true;
