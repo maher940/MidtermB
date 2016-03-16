@@ -413,7 +413,7 @@ public:
 
 	float					handicap; // multiplier for damage/health
 	int						powerupcooldown;
-
+	int						numprojhits;
 public:
 	CLASS_PROTOTYPE( idPlayer );
 
@@ -553,7 +553,6 @@ public:
 	void					GiveWeaponMod				( const char* weaponmod );
 
 	int						SlotForWeapon				( const char *weaponName );
-
 	idEntity*				DropItem					( const char* itemClass, const idDict& customArgs, const idVec3& velocity = vec3_origin ) const; 
 	void					DropPowerups				( void );
 	idEntity*				ResetFlag					( const char* itemClass, const idDict& customArgs ) const;
@@ -573,6 +572,8 @@ public:
 	void					SelectWeapon				( const char * );
 	void					AddProjectilesFired			( int count );
 	void					AddProjectileHits			( int count );
+	int					    GetProjectileHits			();
+	  void		                SetProjectileHits();
  	void					LowerWeapon					( void );
  	void					RaiseWeapon					( void );
  	void					WeaponLoweringCallback		( void );

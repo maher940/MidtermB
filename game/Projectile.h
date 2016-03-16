@@ -70,7 +70,7 @@ protected:
 
 
 	idEntityPtr<idEntity>	owner;
-
+	idForce_Field		forceField2;
 	struct projectileFlags_s {
 		bool				detonate_on_world			: 1;
 		bool				detonate_on_actor			: 1;

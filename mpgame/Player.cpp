@@ -4079,6 +4079,12 @@ idPlayer::FireWeapon
 void idPlayer::FireWeapon( void ) {
 	idMat3 axis;
 	idVec3 muzzle;
+	idPlayer* player = gameLocal.GetLocalPlayer();
+	idVec3 oldVelocity = player->GetPhysics()->GetLinearVelocity();
+	idVec3	wishvel;
+	float	wishspeed;
+	idVec3	wishdir;
+	//float scale = 
 
 	if ( gameLocal.GetIsFrozen() && gameLocal.gameType == GAME_DEADZONE ) {
 		return;
@@ -4092,7 +4098,7 @@ void idPlayer::FireWeapon( void ) {
 		gameLocal.editEntities->SelectEntity( muzzle, axis[0], this );	
 		return;
 	}
-
+	//idVec3 vel = player->GetPhysics()->GetLinearVelocity();
 	if ( !hiddenWeapon && weapon->IsReady() ) {
 		// cheap hack so in MP the LG isn't allowed to fire in the short lapse while it goes from Fire -> Idle before changing to another weapon
 		// this gimps the weapon a lil bit but is consistent with the visual feedback clients are getting since 1.0
@@ -4100,8 +4106,23 @@ void idPlayer::FireWeapon( void ) {
 		noFireWhileSwitching = ( gameLocal.isMultiplayer && idealWeapon != currentWeapon && weapon->NoFireWhileSwitching() );
 		if ( !noFireWhileSwitching ) {
 			if ( weapon->AmmoInClip() || weapon->AmmoAvailable() ) {
+				//player->GetPhysics()->SetLinearVelocity(oldVelocity);
+				if(currentWeapon == 2){
+					//SetOrigin( player->GetPhysics()->GetOrigin() + idVec3( +20.0, 0, 0 ) );
+					//player->GetPhysics()->GetLinearVelocity() + idVec3( 20.0, 20.0, 20.0 )
+					//idVec3 vel = physicsObj.GetLinearVelocity();
+					//idVec3 vel = player->GetPhysics()->GetLinearVelocity();
+					//vel *= 5.0;
+					//idVec3 vel = player->GetPhysics()->GetLinearVelocity();
+					//vel *= 1000000.0f;
+					//physicsObj.command.forwardmove
+					
+				}
 				pfl.attackHeld = true;
+				//player->GetPhysics()->SetLinearVelocity(vel);
+				//physicsObj.SetLinearVelocity( vel );
 				weapon->BeginAttack();
+				//player->GetPhysics()->SetLinearVelocity(oldVelocity);
 			} else {
 				pfl.attackHeld = false;
 				pfl.weaponFired = false;
@@ -4965,7 +4986,7 @@ void idPlayer::UpdatePowerUps( void ) {
 	
 	idPlayer *p = gameLocal.GetLocalPlayer();
 	p->powerupcooldown;
-	
+//	int k = p->numprojhits;
 	//PowerUpActive ( POWERUP_REGENERATION ) || PowerUpActive ( POWERUP_GUARD )
 	if( (PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)) && p->currentWeapon ==10){
 		// p->isBallholder(p);
@@ -11295,6 +11316,25 @@ idPlayer::AddProjectileHites
 void idPlayer::AddProjectileHits( int count ) {
 	numProjectileHits += count;
 }
+/*
+============
+idPlayer::GetProjectileHits
+==================
+*/
+int idPlayer::GetProjectileHits(){
+
+	return numProjectileHits;
+}
+/*
+==================
+idPlayer::SetProjectileHits
+==================
+*/
+void idPlayer::SetProjectileHits(){
+	numProjectileHits = 0;
+}
+
+
 
 /*
 =============

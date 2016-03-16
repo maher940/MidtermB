@@ -633,6 +633,7 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
  	const char*	damageDefName;
  	idVec3		dir;
  	bool		canDamage;
+	idPlayer* player = gameLocal.GetLocalPlayer();
  	
  	hitTeleporter = false;
 
@@ -739,7 +740,27 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
  	// direction of projectile
  	dir = velocity;
  	dir.Normalize();
-	
+	//ignore = NULL;
+	if ( spawnArgs.GetBool ( "spike" ) && !IsBound() ) {
+		
+		//if (gameLocal.entities[collision.c.entityNum];
+		// Attempt to stick to an entity (will not bind to the world)
+		BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
+		
+		player->AddProjectileHits(1);
+		gameLocal.Printf("checking");
+		if(player->GetProjectileHits() >= 10){
+			gameLocal.Printf("should Explode");
+			spawnArgs.SetBool("detonate_on_fuse", 1);
+			//projectileFlags.detonate_on_actor;
+			//Event_Explode();
+			Explode( &collision, true, ignore = NULL);
+			player->SetProjectileHits();
+		}
+		
+		return true;
+	}
+
  	// projectiles can apply an additional impulse next to the rigid body physics impulse
 // RAVEN BEGIN
 // abahr: added call to SkipDamageImpulse changed where push comes from
@@ -1137,7 +1158,9 @@ idProjectile::Explode
 void idProjectile::Explode( const trace_t *collision, const bool showExplodeFX, idEntity *ignore, const char *sndExplode ) {
 	idVec3		normal, endpos;
 	int			removeTime;
-
+	if ( spawnArgs.GetBool ( "spike" ) ){ 
+		Unbind(); 
+	}
 	if ( state == EXPLODED || state == FIZZLED ) {
 		return;
 	}

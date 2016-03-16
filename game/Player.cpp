@@ -11205,7 +11205,9 @@ idPlayer::AddProjectilesFired
 =============
 */
 void idPlayer::AddProjectilesFired( int count ) {
+	//idPlayer* player = gameLocal.GetLocalPlayer();
 	numProjectilesFired += count;
+	
 }
 
 /*
@@ -11214,9 +11216,27 @@ idPlayer::AddProjectileHites
 =============
 */
 void idPlayer::AddProjectileHits( int count ) {
+	
 	numProjectileHits += count;
+//	numprojhits = numProjectileHits;
 }
+/*
+============
+idPlayer::GetProjectileHits
+==================
+*/
+int idPlayer::GetProjectileHits(){
 
+	return numProjectileHits;
+}
+/*
+==================
+idPlayer::SetProjectileHits
+==================
+*/
+void idPlayer::SetProjectileHits(){
+	numProjectileHits = 0;
+}
 /*
 =============
 idPlayer::SetLastHitTime

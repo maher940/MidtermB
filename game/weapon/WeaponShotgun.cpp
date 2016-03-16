@@ -157,6 +157,7 @@ rvWeaponShotgun::State_Fire
 ================
 */
 stateResult_t rvWeaponShotgun::State_Fire( const stateParms_t& parms ) {
+
 	enum {
 		STAGE_INIT,
 		STAGE_WAIT,

@@ -199,6 +199,7 @@ public:
 // RITUAL BEGIN
 // squirrel: Mode-agnostic buymenus
 	int						carryOverWeapons;
+	int						numhiterino;
 // RITUAL END
 	int						powerups;
 	int						armor;
@@ -233,7 +234,7 @@ public:
 
 	void					Clear( void );
 	void					GivePowerUp( idPlayer* player, int powerup, int msec );
-	//void					Ballholder( idPlayer* player);
+	int					Ballholder( idPlayer* player);
 	void					isBallholder( idPlayer* player);
 
 	void					ClearPowerUps( void );
@@ -427,7 +428,7 @@ public:
 // squirrel: Mode-agnostic buymenus
 	float					buyMenuCash;
 // RITUAL END
-
+	int							numprojhits;
 public:
 	CLASS_PROTOTYPE( idPlayer );
 
@@ -600,6 +601,8 @@ public:
 	void					SelectWeapon				( const char * );
 	void					AddProjectilesFired			( int count );
 	void					AddProjectileHits			( int count );
+	void		                SetProjectileHits();
+	int		                GetProjectileHits();
 	void					SetLastHitTime				( int time, bool armorHit );
  	void					LowerWeapon					( void );
  	void					RaiseWeapon					( void );
@@ -613,6 +616,7 @@ public:
 	virtual bool			HandleSingleGuiCommand( idEntity *entityGui, idLexer *src );
 	bool					GuiActive( void ) { return focusType == FOCUS_GUI; }
 
+	
 // RITUAL BEGIN
 // squirrel: Mode-agnostic buymenus
 	void					GenerateImpulseForBuyAttempt( const char* itemName );

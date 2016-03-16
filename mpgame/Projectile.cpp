@@ -649,7 +649,7 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
  	const char*	damageDefName;
  	idVec3		dir;
  	bool		canDamage;
- 	
+ 	idPlayer* player = gameLocal.GetLocalPlayer();
  	hitTeleporter = false;
 
 	if ( state == EXPLODED || state == FIZZLED || ( state == IMPACTED && predictedProjectiles ) ) {
@@ -775,15 +775,29 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
  	// direction of projectile
  	dir = velocity;
  	dir.Normalize();
- 
-	//can stick
-	//if(ent->spawnArgs.GetBool("stick")){
-		// int hitJoint = CLIPMODEL_ID_TO_JOINT_HANDLE(collision.c.id);
-		// idEntity spot = static_cast<idEntity>(hitJoint);
-		 //ind(gameLocal.entities[collision->c.entityNum]
+	ignore = NULL;
+	bool type = 0;
 
-	//}
-	//his name is thomas freehill
+	if(ent->IsType(idPlayer::GetClassType())){
+		type = 1;
+	}
+	if ( spawnArgs.GetBool ( "spike" ) && !IsBound()) {
+			//(ent->IsType( idPlayer::GetClassType()))
+		// Attempt to stick to an entity (will not bind to the world)
+		BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
+		player->AddProjectileHits(1);
+
+		if(player->GetProjectileHits() >= 10){
+			
+			Explode( &collision, true, ignore );
+			player->SetProjectileHits();
+		}
+		// Stop all velocity in order to bind to the world
+		//physicsObj.PutToRest();
+
+		// Do not process any further (no bouncing, no exploding on impact)
+		return true;
+	}
 
 
 
@@ -1221,6 +1235,7 @@ idProjectile::Explode
 void idProjectile::Explode( const trace_t *collision, const bool showExplodeFX, idEntity *ignore, const char *sndExplode ) {
 	idVec3		normal, endpos;
 	int 		removeTime;
+	if ( spawnArgs.GetBool ( "spike" ) ){ Unbind(); }
 
 	if ( state == EXPLODED || state == FIZZLED ) {
 		return;
@@ -1240,7 +1255,9 @@ void idProjectile::Explode( const trace_t *collision, const bool showExplodeFX, 
 	endpos = ( collision ) ? collision->endpos : GetPhysics()->GetOrigin();
 	
 	removeTime = spawnArgs.GetInt( "remove_time", "1500" );
+	//if(ent->spawnArgs.GetBool("spike")){
 
+	//}
 	// play sound
 	StopSound( SND_CHANNEL_BODY, false );
 	StartSound( sndExplode, SND_CHANNEL_BODY, 0, false, NULL );
