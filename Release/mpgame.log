@@ -1,4 +1,4 @@
-﻿Build started 3/16/2016 2:11:55 PM.
+﻿Build started 3/16/2016 2:20:11 PM.
      1>Project "C:\Users\Jacob\IT266\quake4\mpgame.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating ".\Release\mpgame.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -15,4 +15,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.24
+Time Elapsed 00:00:00.16
