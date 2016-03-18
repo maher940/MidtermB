@@ -5000,9 +5000,13 @@ void idPlayer::UpdatePowerUps( void ) {
 		//physicsObj.HasJumped() = 0;
 		//pfl.jump =physicsObj.HasJumped();
 		//gameLocal.Printf("jumping");
-		physicsObj.SetMaxJumpHeight(200.0);
-		physicsObj.RemoveJumpedFlag();
-		//p->inventory.givep
+
+		//causes flying
+		//physicsObj.SetMaxJumpHeight(200.0);
+		//physicsObj.RemoveJumpedFlag();
+		physicsObj.SetMaxJumpHeight(80.0);
+		physicsObj.CallCheckJump();
+		
 		
 	}
 	if ( PowerUpActive( POWERUP_REGENERATION ) ){

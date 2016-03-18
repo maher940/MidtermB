@@ -2125,6 +2125,15 @@ void idPhysics_Player::DisAllowJump(){
 	jumped = 0;
 }
 /*
+=============
+idPhysics_Player::GetcheckJump
+*/
+
+void idPhysics_Player::CallCheckJump(){
+
+	CheckJump();
+}
+/*
 ================
 idPhysics_Player::SetPushed
 ================

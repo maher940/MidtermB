@@ -100,6 +100,7 @@ public:	// common physics interface
 	void					RemoveJumpedFlag();
 	void					AllowJump();
 	void					DisAllowJump();
+	void					CallCheckJump();
 	void					SetPushed( int deltaTime );
 	const idVec3 &			GetPushedLinearVelocity( const int id = 0 ) const;
 	void					ClearPushedVelocity( void );
