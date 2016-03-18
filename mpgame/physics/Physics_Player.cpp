@@ -1285,7 +1285,10 @@ bool idPhysics_Player::CheckJump( void ) {
 	if ( current.movementFlags & PMF_DUCKED ) {
 		return false;
 	}
-
+	//Al
+	if( jumped == 1){
+		return true;
+	}
 	// start by setting up the normal ground slide velocity
 	// this will make sure that when we add the jump velocity we actually get off of the ground plane
 	if ( current.velocity * groundTrace.c.normal < 0.0f ) {
@@ -2092,7 +2095,35 @@ idPhysics_Player::GetLinearVelocity
 const idVec3 &idPhysics_Player::GetLinearVelocity( int id ) const {
 	return current.velocity;
 }
+/*
+=================
+idPhysics_Player::RemoveJumpedFlag()
+=================
+*/
+void idPhysics_Player::RemoveJumpedFlag()
+{
+	idVec3 addVelocity = 2.0f * maxJumpHeight * -gravityVector;
+	addVelocity *= idMath::Sqrt( addVelocity.Normalize() );
+	current.velocity += addVelocity;
+}
+/*
+===============
+idPhysics_Player::AllowJump()
+===============
+*/
+void idPhysics_Player::AllowJump()
+{
+	jumped = 1;
+}
+/*
+===============
+idPhysics_Player::DisAllowJump()
+===============
+*/
+void idPhysics_Player::DisAllowJump(){
 
+	jumped = 0;
+}
 /*
 ================
 idPhysics_Player::SetPushed

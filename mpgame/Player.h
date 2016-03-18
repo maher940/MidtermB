@@ -233,6 +233,7 @@ public:
 
 	void					Clear( void );
 	void					GivePowerUp( idPlayer* player, int powerup, int msec );
+	
 	void					ClearPowerUps( void );
 	void					GetPersistantData( idDict &dict );
 	void					RestoreInventory( idPlayer *owner, const idDict &dict );
@@ -259,6 +260,7 @@ public:
 
 	int						nextItemPickup;
 	int						nextItemNum;
+	int						PowerTime;
 	int						onePickupTime;
 	idList<idItemInfo>		pickupItemNames;
 	idList<idObjectiveInfo>	objectiveNames;
@@ -414,6 +416,7 @@ public:
 	float					handicap; // multiplier for damage/health
 	int						powerupcooldown;
 	int						numprojhits;
+	int						timeremain;
 public:
 	CLASS_PROTOTYPE( idPlayer );
 
@@ -850,6 +853,7 @@ private:
 
 	int						numProjectilesFired;	// number of projectiles fired
 	int						numProjectileHits;		// number of hits on mobs
+	int						RemainTime;
 
 	bool					airless;
 	int						airTics;				// set to pm_airTics at start, drops in vacuum

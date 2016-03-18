@@ -239,6 +239,9 @@ idInventory::GivePowerUp
 ==============
 */
 void idInventory::GivePowerUp( idPlayer *player, int powerup, int msec ) {
+	
+	//PowerTime = msec; 
+	
 	powerups |= 1 << powerup;
 	powerupEndTime[ powerup ] = msec == -1 ? -1 : (gameLocal.time + msec);
 }
@@ -4106,18 +4109,9 @@ void idPlayer::FireWeapon( void ) {
 		noFireWhileSwitching = ( gameLocal.isMultiplayer && idealWeapon != currentWeapon && weapon->NoFireWhileSwitching() );
 		if ( !noFireWhileSwitching ) {
 			if ( weapon->AmmoInClip() || weapon->AmmoAvailable() ) {
-				//player->GetPhysics()->SetLinearVelocity(oldVelocity);
 				if(currentWeapon == 2){
-					//SetOrigin( player->GetPhysics()->GetOrigin() + idVec3( +20.0, 0, 0 ) );
-					//player->GetPhysics()->GetLinearVelocity() + idVec3( 20.0, 20.0, 20.0 )
-					//idVec3 vel = physicsObj.GetLinearVelocity();
-					//idVec3 vel = player->GetPhysics()->GetLinearVelocity();
-					//vel *= 5.0;
-					//idVec3 vel = player->GetPhysics()->GetLinearVelocity();
-					//vel *= 1000000.0f;
-					//physicsObj.command.forwardmove
-					//player->playerView.
-					idVec3 kick;									//idVec3 (2000, 0, 0);
+					
+					idVec3 kick;									
 					viewAngles.ToVectors( &kick, NULL, NULL );
 					kick.Normalize();
  					kick *= g_knockback.GetFloat() * 50 * 1/ 200.0f;
@@ -4129,10 +4123,8 @@ void idPlayer::FireWeapon( void ) {
 					
 				}
 				pfl.attackHeld = true;
-				//player->GetPhysics()->SetLinearVelocity(vel);
-				//physicsObj.SetLinearVelocity( vel );
 				weapon->BeginAttack();
-				//player->GetPhysics()->SetLinearVelocity(oldVelocity);
+				
 			} else {
 				pfl.attackHeld = false;
 				pfl.weaponFired = false;
@@ -4434,7 +4426,7 @@ float idPlayer::PowerUpModifier( int type ) {
 	if ( PowerUpActive( POWERUP_HASTE ) ) {
 		switch ( type ) {
 			case PMOD_SPEED:	
-				mod *= 1.3f;
+				mod *= 0.5f;
 				break;
 
 			case PMOD_FIRERATE:
@@ -4442,7 +4434,13 @@ float idPlayer::PowerUpModifier( int type ) {
 				break;
 		}
 	}
-
+	if( PowerUpActive( POWERUP_REGENERATION)){
+		switch ( type ) {
+			case PMOD_SPEED:	
+				mod *= 0.5f;
+				break;
+	}
+	}
 	// Arena CTF powerups
 	if( PowerUpActive( POWERUP_AMMOREGEN ) ) {
 		switch( type ) {
@@ -4993,11 +4991,45 @@ void idPlayer::UpdatePowerUps( void ) {
 	int wearoff = -1;
 	bool playWearoffSound = false;
 	int j =1;
-	
 	idPlayer *p = gameLocal.GetLocalPlayer();
 	p->powerupcooldown;
+	
 //	int k = p->numprojhits;
 	//PowerUpActive ( POWERUP_REGENERATION ) || PowerUpActive ( POWERUP_GUARD )
+	if ( PowerUpActive( POWERUP_QUADDAMAGE ) ){
+		//physicsObj.HasJumped() = 0;
+		//pfl.jump =physicsObj.HasJumped();
+		//gameLocal.Printf("jumping");
+		physicsObj.SetMaxJumpHeight(200.0);
+		physicsObj.RemoveJumpedFlag();
+		//p->inventory.givep
+		
+	}
+	if ( PowerUpActive( POWERUP_REGENERATION ) ){
+
+		    physicsObj.SetMaxJumpHeight(200.0);
+			gameLocal.Printf("%d \n",inventory.powerupEndTime[2]);
+			//if(inventory.powerupEndTime
+			//if(inventory.powerupEndTime[2] > gameLocal.time ){
+			int timeremain = inventory.powerupEndTime[2] - gameLocal.time;
+			gameLocal.Printf("%d \n",timeremain);
+			if(timeremain >=15000){
+				gameLocal.Printf("here we are \n");
+			physicsObj.AllowJump();
+			}
+			else{
+				gameLocal.Printf("Were here now \n");
+				physicsObj.DisAllowJump();
+			}
+			//}
+			//}
+	}
+	
+	if(PowerUpActive(!POWERUP_REGENERATION)){
+		//physicsObj.DisAllowJump();
+		//physicsObj.disa
+		physicsObj.DisAllowJump();
+	}
 	if( (PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)) && p->currentWeapon ==10){
 		// p->isBallholder(p);
 		

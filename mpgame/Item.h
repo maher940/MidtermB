@@ -143,6 +143,9 @@ public:
 	void					Restore( idRestoreGame *savefile );
 
 	void					Spawn();
+	int						SetTime(int time2);
+	int					    GetTime();
+
 	virtual bool			GiveToPlayer( idPlayer *player );
 	virtual void			Think( void );
 	virtual bool			Pickup( idPlayer *player );

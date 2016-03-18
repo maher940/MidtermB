@@ -263,6 +263,7 @@ public:
 
 	int						nextItemPickup;
 	int						nextItemNum;
+	int						PowerTime;
 	int						onePickupTime;
 	idList<idItemInfo>		pickupItemNames;
 	idList<idObjectiveInfo>	objectiveNames;
@@ -429,6 +430,7 @@ public:
 	float					buyMenuCash;
 // RITUAL END
 	int							numprojhits;
+	int						timeremain;
 public:
 	CLASS_PROTOTYPE( idPlayer );
 

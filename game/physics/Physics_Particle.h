@@ -87,6 +87,7 @@ public:	// common physics interface
 	void					SetLinearVelocity( const idVec3 &newLinearVelocity, int id = 0 );
 
 	const idVec3 &			GetLinearVelocity( int id = 0 ) const;
+	
 
 	void					ClipTranslation( trace_t &results, const idVec3 &translation, const idClipModel *model ) const;
 	void					ClipRotation( trace_t &results, const idRotation &rotation, const idClipModel *model ) const;

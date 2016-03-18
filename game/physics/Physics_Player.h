@@ -101,6 +101,8 @@ public:	// common physics interface
 	void					SetLinearVelocity( const idVec3 &newLinearVelocity, int id = 0 );
 
 	const idVec3 &			GetLinearVelocity( int id = 0 ) const;
+	void					RemoveJumpedFlag();
+	void					DisAllowJump();
 
 	void					SetPushed( int deltaTime );
 	const idVec3 &			GetPushedLinearVelocity( const int id = 0 ) const;
@@ -144,6 +146,7 @@ private:
 
 	// walk movement
 	bool					walking;
+	//bool					jumped;
 	bool					groundPlane;
 	trace_t					groundTrace;
 	const idMaterial *		groundMaterial;

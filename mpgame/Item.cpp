@@ -1147,6 +1147,28 @@ void idItemPowerup::Spawn( void ) {
 		team = -1;
 	}
 }
+/*
+===============
+idItemPowerup::SetTime()
+===============
+*/
+//int idItemPowerup::SetTime(int time2){
+//	time2 = time;
+//}
+/*
+===============
+idItemPowerup::GetTime()
+===============
+*/
+int idItemPowerup::GetTime(){
+	idPlayer *player = gameLocal.GetLocalPlayer();
+	int timeB;
+	
+	
+	return timeB;
+
+}
+
 
 /*
 ================

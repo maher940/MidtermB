@@ -786,13 +786,16 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 		// Attempt to stick to an entity (will not bind to the world)
 		BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
 		player->AddProjectileHits(1);
-
+		player->AddProjectileHits(1);
+		//gameLocal.Printf("checking");
 		if(player->GetProjectileHits() >= 10){
-			
-			Explode( &collision, true, ignore );
+			//gameLocal.Printf("should Explode");
+			spawnArgs.SetBool("detonate_on_fuse", 1);
+			//projectileFlags.detonate_on_actor;
+			//Event_Explode();
+			Explode( &collision, true, ignore = NULL);
 			player->SetProjectileHits();
-		}
-		// Stop all velocity in order to bind to the world
+		} 
 		//physicsObj.PutToRest();
 
 		// Do not process any further (no bouncing, no exploding on impact)
