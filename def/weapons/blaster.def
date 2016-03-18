@@ -284,7 +284,96 @@ entityDef projectile_blaster
 	"fx_teleport_enter"		"effects/mp/item_teleport.fx"
 	"fx_teleport"			"effects/mp/item_teleport.fx"
 }
+entityDef projectile_blaster2
+{
+	"spawnclass"				"idProjectile"
+	"mins"						"-2 -2 -2"
+	"maxs"						"2 2 2"
+	"cone"						"2"
+	"noshadows"					"1"
+																
+	"def_damage"				"damage_rockerlauncher"
+								
+	"velocity"					"1500 0 0"
+	"fuse"						"4"
+	"push"						"7500"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"1"
+								
+	"impact_gib"				"1"
+								
+	"decal_bounce"				""
+	"decal_size"				"8"
+								
+	"fx_fly"					"effects/weapons/blaster/fly.fx"
+	"fx_impact"					"effects/weapons/blaster/impact_default.fx"
+	"fx_impact_water"			"effects/ambient/splash_smll.fx"
+	"fx_impact_flesh"			"effects/weapons/blaster/impact_flesh.fx"
+	"fx_impact_monstermetal"	"effects/weapons/blaster/impact_monstermetal.fx"
+	"fx_impact_electronics"		"effects/weapons/machinegun/impact_electronics.fx"
+	"fx_impact_armor"			"effects/weapons/machinegun/impact_armor.fx"
+	
+	"fx_teleport_enter"		"effects/mp/item_teleport.fx"
+	"fx_teleport"			"effects/mp/item_teleport.fx"
+}
+entityDef projectile_blaster3
+{
+	"spawnclass"				"idProjectile"
+	"mins"						"-2 -2 -2"
+	"maxs"						"2 2 2"
+	"cone"						"2"
+	"noshadows"					"1"
+																
+	"def_damage"				"damage_grenadeDirect"
+	"def_splash_damage"			"damage_grenadeSplash"
+																											
+	"speed"						"700"
+	"angular_velocity"			"-10 5 1"
+	"settle_duration"			"0.08"
+	
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"
+	"bounce"					"0"
+	"gravity"					"1"
+	"fuse"						"2.5"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"0"
+	"detonate_on_actor"			"0"
+	"detonateTestGroundMaterial"	"1"
+	//"bindOnImpact"				"1"
+	"spike"						"1"
+	//"stick"						'1"
+	"implode"					"1"							
+	"impact_gib"				"1"								
+	"decal_size"				"75"
 
+	"flyEffectAttenuateSpeed"	"200"
+	
+	"airBurst_desc"				"midair_"
+
+	"fx_fly"					"effects/weapons/blaster/charged/fly.fx"
+	"fx_impact"				"effects/weapons/rocketlauncher/impact.fx"
+	"fx_impact_mp"				"effects/weapons/rocketlauncher/impact_mp.fx"
+	"fx_impact_water"			"effects/ambient/splash_med.fx"
+	"fx_impact_rock"			"effects/weapons/rocketlauncher/impact_concrete.fx"
+	"fx_impact_rock_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
+	"fx_impact_concrete"			"effects/weapons/rocketlauncher/impact_concrete.fx"
+	"fx_impact_concrete_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
+	"friendly_impact"			"1"
+
+	"snd_ricochet"				"grenade_bounce"	
+
+	"net_syncPhysics"			"1"
+	
+	"fx_teleport_enter"		"effects/mp/item_teleport.fx"
+	"fx_teleport"			"effects/mp/item_teleport.fx"
+}
 entityDef projectile_blaster_charged
 {
 	"inherit"					"projectile_blaster"
@@ -307,7 +396,7 @@ entityDef projectile_blaster_charged
 }
 entityDef projectile_blaster_charged2
 {
-	"inherit"					"projectile_blaster"
+	"inherit"					"projectile_blaster2"
 
 	"mins"						"-8 -8 -8"
 	"maxs"						"8 8 8"
@@ -326,7 +415,27 @@ entityDef projectile_blaster_charged2
 	"def_damage"				"damage_blaster_charged"
 	"def_splash_damage"			"damage_blastersplash_charged"
 }
+entityDef projectile_blaster_charged3
+{
+	"inherit"					"projectile_blaster3"
 
+	"mins"						"-8 -8 -8"
+	"maxs"						"8 8 8"
+
+	"velocity"					"2000 0 0"
+
+	"fx_fly"					"effects/weapons/blaster/charged/fly.fx"
+	"fx_impact"				"effects/weapons/rocketlauncher/impact.fx"
+	"fx_impact_mp"				"effects/weapons/rocketlauncher/impact_mp.fx"
+	"fx_impact_water"			"effects/ambient/splash_med.fx"
+	"fx_impact_rock"			"effects/weapons/rocketlauncher/impact_concrete.fx"
+	"fx_impact_rock_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
+	"fx_impact_concrete"			"effects/weapons/rocketlauncher/impact_concrete.fx"
+	"fx_impact_concrete_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
+
+	"def_damage"				"damage_blaster_charged"
+	"def_splash_damage"			"damage_blastersplash_charged"
+}
 //--------------------------------------------------------------------------------------------------------------------
 // Damage
 //-------------------------------------------------------------------------------------------------------------------0

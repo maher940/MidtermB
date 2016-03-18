@@ -126,9 +126,9 @@ entityDef weapon_lightninggun
 	"weaponAngleOffsetMax"		"5"
 	"weaponOffsetTime"			"600"
 	"weaponOffsetScale"			"0.002"
-	
+	//"model"						"models/weapons/napalmgun/flame_gun_globsmall.ase"
 	"fx_impact"					"effects/weapons/lightninggun/impact.fx"
-	"fx_impact_mp"					"effects/weapons/lightninggun/impact_mp.fx"
+	"fx_impact_mp"					"effects/weapons/napalmgun/impact.fx"
 //	"fx_impact_water"			"effects/ambient/splash_med.fx"
 	"fx_trail"					"effects/weapons/lightninggun/trail.fx"	
 	"fx_trail_world"			"effects/weapons/lightninggun/trail_world.fx"	

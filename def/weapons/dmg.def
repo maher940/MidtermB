@@ -311,15 +311,16 @@ entityDef projectile_dmg
 	"speed"					"250"
 	
 	"delay_splash"				".45"
-	
+	"gravity"					"1"
+	"bounce"					"2.5"
 	"linear_friction"			"0"
 	"angular_friction"			"0"
 	"contact_friction"			"10"
-	"fuse"					"10"
+	"fuse"					"2.5"
 								
 	"detonate_on_fuse"			"1"
 	"detonate_on_death"			"0"
-	"detonate_on_world"			"1"
+	"detonate_on_world"			"0"
 	"detonate_on_actor"			"0"
 								
 	"impact_gib"				"1"								
@@ -399,17 +400,20 @@ entityDef projectile_dmg_mp
 	"def_damage"				"damage_dmg_mp"
 	"def_splash_damage"			"damage_dmg_splash_mp"
 																											
-	"speed"						"350"
-	"fuse"						"10"
+	"speed"						"1000"
+	"fuse"						"2.5"
 	"push"						"48000"
-	
+	"gravity"					"1"
+	"bounce"					"2.5"
 	"predictTime"				"50"
-							
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"						
 	"detonate_on_fuse"			"1"
 	"detonate_on_death"			"0"
-	"detonate_on_world"			"1"
-	"detonate_on_actor"			"1"
-	"detonate_on_bounce"		"1"
+	"detonate_on_world"			"0"
+	"detonate_on_actor"			"0"
+	"detonate_on_bounce"		"0"
 								
 	"impact_gib"				"1"								
 	"decal_size"				"75"

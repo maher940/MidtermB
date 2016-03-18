@@ -420,15 +420,15 @@ entityDef projectile_nail
 																											
 	"health"					"0"
 	"speed"						"1200"
-	"gravity"					"0"
-	"fuse"						"4"
+	"gravity"					"0"	
+	"fuse"						"10"
 								
-	"detonate_on_fuse"			"1"
+	"detonate_on_fuse"			"0"
 	"detonate_on_death"			"0"
-	"detonate_on_world"			"1"
-	"detonate_on_actor"			"1"
-	"detonate_on_bounce"		"1"
-																
+	"detonate_on_world"			"0"
+	"detonate_on_actor"			"0"
+	"detonate_on_bounce"		"0"
+	"spike"						"1"
 	"decal_size"				"8"
 
 	//sigh... so that a splash damage projectile can still have it's impact effect suppressed on buddy corpses... :/
@@ -458,7 +458,7 @@ entityDef projectile_nail
 
 entityDef projectile_nail_mp
 {
-	"inherit"					"impact_napalm_projectile"
+	"inherit"					"projectile_napalm"
 	"speed"						"1400"
 	"no_impact_prediction"		"1"
 }

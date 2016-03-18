@@ -87,7 +87,7 @@ entityDef weapon_grenadelauncher
 	"inv_name"					"#str_107403"	
 
 	"weaponname"				"Grenade Launcher"
-	"def_projectile"			"projectile_grenade"
+	"def_projectile"			"projectile_dmg"
 	"ammoType"					"ammo_grenadelauncher"
 	"clipSize"					"8"
 	"ammoRequired"				"1"
@@ -260,9 +260,10 @@ entityDef projectile_grenade
 	"detonate_on_world"			"0"
 	"detonate_on_actor"			"0"
 	"detonateTestGroundMaterial"	"1"
-	"bindOnImpact"				"1"
+	//"bindOnImpact"				"1"
+	"spike"						"0"
 	//"stick"						'1"
-								
+	"implode"					"1"							
 	"impact_gib"				"1"								
 	"decal_size"				"75"
 
@@ -270,18 +271,14 @@ entityDef projectile_grenade
 	
 	"airBurst_desc"				"midair_"
 
-	"fx_fly"				"effects/weapons/grenadelauncher/trail.fx"
-	"fx_fly_mp"				"effects/weapons/grenadelauncher/trail_mp.fx"
-	"fx_detonate"				"effects/weapons/grenadelauncher/detonate.fx"
-	"fx_detonate_mp"			"effects/weapons/rocketlauncher/detonate_mp.fx"
-	"fx_impact"				"effects/weapons/grenadelauncher/impact.fx"
+	"fx_fly"					"effects/weapons/blaster/charged/fly.fx"
+	"fx_impact"				"effects/weapons/rocketlauncher/impact.fx"
 	"fx_impact_mp"				"effects/weapons/rocketlauncher/impact_mp.fx"
-	"fx_impact_concrete"			"effects/weapons/grenadelauncher/impact_concrete.fx"
-	"fx_impact_concrete_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
-	"fx_impact_rock"			"effects/weapons/grenadelauncher/impact_concrete.fx"
-	"fx_impact_rock_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
 	"fx_impact_water"			"effects/ambient/splash_med.fx"
-
+	"fx_impact_rock"			"effects/weapons/rocketlauncher/impact_concrete.fx"
+	"fx_impact_rock_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
+	"fx_impact_concrete"			"effects/weapons/rocketlauncher/impact_concrete.fx"
+	"fx_impact_concrete_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
 	"friendly_impact"			"1"
 
 	"snd_ricochet"				"grenade_bounce"	

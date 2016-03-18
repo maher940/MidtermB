@@ -250,7 +250,7 @@ model weapon_napalmgun_world
 entityDef projectile_napalm
 {
 	"spawnclass"				"idProjectile"
-	"size"						"7 7 7"
+	"size"						"100 100 100"
 	"cone"						"2"
 	"noshadows"					"1"
 	"clipmask_largeshot"		"1"
@@ -260,26 +260,26 @@ entityDef projectile_napalm
 	"def_damage"				"damage_napalmDirect"
 	"def_splash_damage"			"damage_napalmSplash"	
 
-	"speed"						"1200"
-	"angular_velocity"			"-10 5 1"
+	"speed"						"20"
+	"angular_velocity"			"-60 5 1"
 	"settle_duration"			"0.08"
 	
 	"linear_friction"			"0"
 	"angular_friction"			"0"
 	"contact_friction"			"10"
 	//"bounce"					".65"
-	"gravity"					"1.2"
-	"fuse"						"2.5"
+	"gravity"					"0"
+	"fuse"						"0.3"
 								
 	"detonate_on_fuse"			"1"
 	"detonate_on_death"			"0"
-	"detonate_on_world"			"1"
-	"detonate_on_actor"			"1"
+	"detonate_on_world"			"0"
+	"detonate_on_actor"			"0"
 								
 	"impact_gib"				"1"
 	"decal_size"				"75"
 
-	"flyEffectAttenuateSpeed"	"200"
+	"flyEffectAttenuateSpeed"	"10"
 	
 	"airBurst_desc"				"midair_"
 
@@ -376,7 +376,7 @@ entityDef damage_napalmDirect
 
 entityDef damage_napalmSplash
 {
-	"damage"					"70"
+	"damage"					"0"
 	"radius"					"140"
 	"attackerDamageScale"		"1.0"
 	"knockback"					"60"
@@ -388,7 +388,7 @@ entityDef damage_napalmSplash
 
 entityDef damage_napalmGlobEmit
 {
-	"damage"					"15"
+	"damage"					"0"
 	"radius"					"140"
 	"attackerDamageScale"		"1.0"
 	"knockback"					"0"

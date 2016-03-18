@@ -338,7 +338,7 @@ entityDef projectile_hyperblaster
 
 entityDef projectile_hyperblaster_mp
 {
-	"inherit"					"projectile_blaster"
+	"inherit"					"projectile_nail"
 	"def_splash_damage"			"damage_hyperblaster_splash"	
 	"speed"						"1950"
 	"no_impact_prediction"		"1"

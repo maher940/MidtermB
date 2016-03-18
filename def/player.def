@@ -698,7 +698,7 @@ entityDef player_marine
 	// default weapons
 	// seperate multiple weapons with commas (no spaces).
 	// NOTE: default ammo must be specified explicitly.
-	"weapon"						"weapon_blaster"
+	"weapon"						"weapon_blaster,weapon_grenadelauncher"
 	"current_weapon"					"0"
 
 	"pm_jumpheight"						"48"
@@ -742,7 +742,7 @@ entityDef player_marine
 	"ammo_shotgun"						"0"
 	"ammo_hyperblaster"					"0"
 	"ammo_rocketlauncher"					"0"
-	"ammo_grenadelauncher"					"0"
+	"ammo_grenadelauncher"					"100"
 	"ammo_lightninggun"					"0"
 	"ammo_none"						"-1"
 
@@ -1060,7 +1060,7 @@ entityDef player_marine_mp
 {
 	"inherit"			"player_marine"
 
-	"weapon"			"weapon_blaster,weapon_machinegun,weapon_nailgun"
+	"weapon"			"weapon_blaster,weapon_machinegun,weapon_nailgun,weapon_shotgun,weapon_lightninggun,weapon_grenadelauncher,weapon_hyperblaster"
 	"current_weapon"		"0"
 
 	// replce blaster with gauntlet in MP
@@ -1088,10 +1088,10 @@ entityDef player_marine_mp
 	"ammo_machinegun"		"100"
 	"ammo_nailgun"			"100"
 	"ammo_blaster"			"-1"
-	"ammo_shotgun"			"0"
-	"ammo_hyperblaster"		"0"
+	"ammo_shotgun"			"50"
+	"ammo_hyperblaster"		"100"
 	"ammo_rocketlauncher"		"10"
-	"ammo_grenadelauncher"		"10"
+	"ammo_grenadelauncher"		"50"
 
 	"powerup_effect_joints"		"*body -*r_wrist r_wrist -*l_wrist l_wrist"
 
