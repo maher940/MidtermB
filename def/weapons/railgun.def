@@ -85,15 +85,15 @@ entityDef weapon_railgun
 	"joint_world_flash"			"muzzle_flash"
 
 	"fireRate"				"1.6"
-	"spread"				"0.5"
+	"spread"				"0"
 
 	"inv_weapon"				"weapon_railgun"
-	"inv_start_ammo_railgun"		"10"
+	"inv_start_ammo_railgun"		"30"
 	"inv_item"				"1"
 	"inv_icon"				"gfx/guis/hud/icons/item_railgun"
 	"inv_name"				"#str_107408"
 	
-	"def_hitscan"				"hitscan_railgun"	
+	"def_hitscan"				"hitscan_bullet"	
 	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_railgun"
 
 	"ammoType"				"ammo_railgun"
@@ -169,11 +169,11 @@ entityDef weapon_railgun
 
 entityDef weapon_railgun_mp
 {
-	"inherit"				"weapon_machinegun"
+	"inherit"				"weapon_railgun"
 	"model_view" 				"weapon_railgun_view_mp"
 	"editor_ignore"				"1"
 	"clipsize"				"0"
-	"fireRate"				".1"
+	"fireRate"				"1.5"
 	"inv_icon"				"gfx/guis/hud/icons/item_railgun_colored.tga"
 	"mtr_simple_icon"		"simpleicons/item_railgun_colored.tga"
 	"simple_icon_scale"			"32.0"
@@ -193,7 +193,7 @@ entityDef weapon_railgun_mp
 	// played when you touch a weapon you can't acquire, i.e. weaponStay in MP
 	"snd_noAcquire"			"pickup_weaponstay"
 
-	"inv_start_ammo_railgun"		"50"
+	"inv_start_ammo_railgun"		"7"
 }
 
 entityDef moveable_item_railgun
@@ -433,7 +433,7 @@ entityDef hitscan_railgun_penetrate
 
 entityDef damage_railgun 
 {
-	"damage"					"20"
+	"damage"					"125"
 	"push"						"500"
 	"knockback"					"100"
 	"gib"						"1"

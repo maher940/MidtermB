@@ -636,11 +636,11 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 	idPlayer* player = gameLocal.GetLocalPlayer();
  	
  	hitTeleporter = false;
-
+	
 	if ( state == EXPLODED || state == FIZZLED ) {
 		return true;
 	}
-
+	
 	// allow projectiles to hit triggers (teleports)
 	// predict this on a client
 	if( collision.c.contents & CONTENTS_TRIGGER ) {
@@ -765,6 +765,12 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 
 	//Apply any impact force if the necessary
 	//ApplyImpactForce(ent, collision, dir);
+	if( spawnArgs.GetBool( "fire_stick" ) ){
+	 BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
+	 //Unbind();
+	 physicsObj.PutToRest();
+	 return true;	
+ }
 	if ( spawnArgs.GetBool ( "spike" ) ) {
 		
 		BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
@@ -781,6 +787,7 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 		
 		return true;
 	}
+	
 	// MP: projectiles open doors
 	if ( gameLocal.isMultiplayer && ent->IsType( idDoor::GetClassType() ) && !static_cast< idDoor * >(ent)->IsOpen() && !ent->spawnArgs.GetBool( "no_touch" ) ) {
 		ent->ProcessEvent( &EV_Activate , this );

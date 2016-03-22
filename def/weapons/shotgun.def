@@ -158,7 +158,7 @@ entityDef weapon_shotgun_mp
 	"spread"				"875"
 	"hitscans"				"11"
 	"editor_ignore"				"1"
-	"range"					"131072"
+	"range"					"50"
 	"fireRate"				"1.0"
 	"inv_icon"				"gfx/guis/hud/icons/item_shotgun_colored"
 	"mtr_simple_icon"			"simpleicons/item_shotgun_colored"

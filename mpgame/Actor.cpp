@@ -2190,6 +2190,7 @@ idActor::OnFriendlyFire
 =====================
 */
 void idActor::OnFriendlyFire ( idActor* attacker ) {
+
 }
 
 /*

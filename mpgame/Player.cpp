@@ -4109,6 +4109,7 @@ void idPlayer::FireWeapon( void ) {
 		noFireWhileSwitching = ( gameLocal.isMultiplayer && idealWeapon != currentWeapon && weapon->NoFireWhileSwitching() );
 		if ( !noFireWhileSwitching ) {
 			if ( weapon->AmmoInClip() || weapon->AmmoAvailable() ) {
+				
 				if(currentWeapon == 2){
 					
 					idVec3 kick;									
@@ -4123,6 +4124,7 @@ void idPlayer::FireWeapon( void ) {
 					
 				}
 				pfl.attackHeld = true;
+				//gameLocal.Printf(physicsObj.PlayerGetOrigin());
 				weapon->BeginAttack();
 				
 			} else {
@@ -4430,7 +4432,7 @@ float idPlayer::PowerUpModifier( int type ) {
 				break;
 
 			case PMOD_FIRERATE:
-				mod *= 0.7f;
+				//mod *= 0.7f;
 				break;
 		}
 	}
@@ -4485,7 +4487,7 @@ float idPlayer::PowerUpModifier( int type ) {
 	if( PowerUpActive( POWERUP_SCOUT ) ) {
 		switch( type ) {
 			case PMOD_FIRERATE: {
-				mod *= (2.0f / 3.0f);
+				//mod *= (2.0f / 3.0f);
 				break;
 			}
 			case PMOD_SPEED: {	
@@ -4499,10 +4501,6 @@ float idPlayer::PowerUpModifier( int type ) {
 		switch ( type ) {
 			case PMOD_SPEED:	
 				mod *= 1.5f;
-				break;
-
-			case PMOD_FIRERATE:
-				mod *= 5.0f;
 				break;
 		}
 	}
@@ -4991,19 +4989,13 @@ void idPlayer::UpdatePowerUps( void ) {
 	int wearoff = -1;
 	bool playWearoffSound = false;
 	int j =1;
-	idPlayer *p = gameLocal.GetLocalPlayer();
-	p->powerupcooldown;
+	idPlayer *p = this;
 	
-//	int k = p->numprojhits;
-	//PowerUpActive ( POWERUP_REGENERATION ) || PowerUpActive ( POWERUP_GUARD )
-	if ( PowerUpActive( POWERUP_QUADDAMAGE ) ){
-		//physicsObj.HasJumped() = 0;
-		//pfl.jump =physicsObj.HasJumped();
-		//gameLocal.Printf("jumping");
+	//p->powerupcooldown;
+	this->powerupcooldown;
+	
 
-		//causes flying
-		//physicsObj.SetMaxJumpHeight(200.0);
-		//physicsObj.RemoveJumpedFlag();
+	if ( PowerUpActive( POWERUP_QUADDAMAGE ) ){
 		physicsObj.SetMaxJumpHeight(80.0);
 		physicsObj.CallCheckJump();
 		
@@ -5012,23 +5004,27 @@ void idPlayer::UpdatePowerUps( void ) {
 	if ( PowerUpActive( POWERUP_REGENERATION ) ){
 
 		    physicsObj.SetMaxJumpHeight(200.0);
+			//gets how long the powerup should last
 			gameLocal.Printf("%d \n",inventory.powerupEndTime[2]);
-			//if(inventory.powerupEndTime
-			//if(inventory.powerupEndTime[2] > gameLocal.time ){
+			//minuses how long the powerup last by gametime which ends up giving how long the powerup lasts
 			int timeremain = inventory.powerupEndTime[2] - gameLocal.time;
 			gameLocal.Printf("%d \n",timeremain);
+			//if its greater than 15 secs
 			if(timeremain >=15000){
-				gameLocal.Printf("here we are \n");
+				//turns off jump but i mixed up the too
 			physicsObj.AllowJump();
 			}
 			else{
-				gameLocal.Printf("Were here now \n");
+				
+				//this actually allows jumping but i messed uped
 				physicsObj.DisAllowJump();
 			}
-			//}
-			//}
+			
 	}
-	
+	if( PowerUpActive( POWERUP_HASTE)){
+		physicsObj.SetMaxJumpHeight(200.0);
+		physicsObj.RemoveJumpedFlag();
+	}
 	if(PowerUpActive(!POWERUP_REGENERATION)){
 		//physicsObj.DisAllowJump();
 		//physicsObj.disa
@@ -5037,26 +5033,20 @@ void idPlayer::UpdatePowerUps( void ) {
 	if( (PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)) && p->currentWeapon ==10){
 		// p->isBallholder(p);
 		
+		this->powerupcooldown++;
+		//powerupcooldown++;
+		this->physicsObj.SetMaxJumpHeight( 200);
 		
-		p->powerupcooldown++;
-		p->physicsObj.SetMaxJumpHeight( 200);
-		
-		if(p->powerupcooldown%50 == 0){
-			//gameLocal.mpGame.AddTeamScore(p->team, 10);
-		//if(p->powerupcooldown > 10){
-			//gameLocal.mpGame.AddTeamScore(p->team, 1);
-		//}
-			gameLocal.mpGame.AddTeamScore(p->team, 1);
+		if(this->powerupcooldown%50 == 0){
+			
+			gameLocal.mpGame.AddTeamScore(this->team, 1);
 			
 
 		}
-		//return p->powerupcooldown;
-		//else {
-		//	powerupcooldown--;
-		//}
+		
 	}
 	
-	//p->team
+	
 	if ( p && ( p->spectating && p->spectator == entityNumber || !p->spectating && p->entityNumber == entityNumber ) ) {
 		playWearoffSound = true;
 	}

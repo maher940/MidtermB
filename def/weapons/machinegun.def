@@ -92,7 +92,7 @@ entityDef weapon_machinegun
 	"inv_icon"					"gfx/guis/hud/icons/item_machinegun.tga"
 	"inv_name"					"#str_107406"
 
-	"fireRate"					"1.5"
+	"fireRate"					"1"
 	"spread"					"200"
 
 	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
@@ -215,7 +215,7 @@ entityDef weapon_machinegun_mp
 	"respawn_Team DM"			"30"
 	"respawn_Tourney"			"15"
 	
-	"inv_start_ammo_machinegun"		"100"
+	"inv_start_ammo_machinegun"		"8"
 	
 	// played when you touch a weapon you can't acquire, i.e. weaponStay in MP
 	"snd_noAcquire"			"pickup_weaponstay"	
@@ -381,7 +381,7 @@ entityDef hitscan_zoomed_bullet
 entityDef damage_machinegun
 {
 	"inherit"					"damage_bullet"
-	"damage"					"15"
+	"damage"					"80"
 	"damage_flesh"				"18"
 
 	"deathPush"					"100"
@@ -401,7 +401,7 @@ entityDef damage_machinegun_flesh
 entityDef damage_machinegun_zoom
 {
 	"inherit"					"damage_machinegun"
-	"damage"					"20"
+	"damage"					"80"
 	"damage_flesh"				"24"
 }
 
@@ -435,7 +435,7 @@ entityDef hitscan_zoomed_bullet_mp
 entityDef damage_machinegun_mp
 {
 	"inherit"					"damage_bullet"
-	"damage"					"7"
+	"damage"					"80"
 	"damage_flesh"					"7"
 	"damage_team"					"5"
 	"knockback"					"7"
@@ -450,7 +450,7 @@ entityDef damage_machinegun_mp
 entityDef damage_machinegun_zoom_mp
 {
 	"inherit"					"damage_machinegun_mp"
-	"damage"					"10"
+	"damage"					"80"
 	"damage_flesh"					"10"
 	"damage_team"					"7"
 	"knockback"					"10"

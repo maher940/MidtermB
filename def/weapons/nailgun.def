@@ -458,9 +458,10 @@ entityDef projectile_nail
 
 entityDef projectile_nail_mp
 {
-	"inherit"					"projectile_napalm"
+	"inherit"					"impact_napalm_projectile"
 	"speed"						"1400"
 	"no_impact_prediction"		"1"
+	//"stick"						"1"
 }
 
 entityDef projectile_nail_seek
@@ -494,7 +495,7 @@ entityDef damage_nailDirect
 
 entityDef damage_nailSplash 
 {
-	"damage"					"25"
+	"damage"					"50"
 	"radius"					"50"
 	"knockback"					"5"
 	"push"						"0"
@@ -514,7 +515,7 @@ entityDef damage_nailDirect_mp
 
 entityDef damage_nailSplash_mp
 {
-	"damage"					"25"
+	"damage"					"50"
 	"radius"					"75"
 	"knockback"					"30"
 	"push"						"0"

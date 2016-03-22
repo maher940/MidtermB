@@ -2093,7 +2093,7 @@ bool rvItemCTFFlag::GiveToPlayer( idPlayer* player ) {
 		else if ( player->PowerUpActive ( enemyPowerup ) ) {
 			// If they have the enemy flag then they score
 			
-			//gameLocal.mpGame.AddTeamScore( player->team, 1 );
+			
 			if ( !gameLocal.mpGame.CanCapture ( player->team ) ) {
 				return false;
 			}
@@ -2160,7 +2160,7 @@ bool rvItemCTFFlag::Pickup( idPlayer *player ) {
 
 	//gameLocal.mpGame.AddPlayerTeamScore( player, 10 );
 
-	player->Ballholder(player);
+	//player->Ballholder(player);
 
 	player->GiveItem("weapon_gauntlet");
 	

@@ -781,34 +781,7 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 	if(ent->IsType(idPlayer::GetClassType())){
 		type = 1;
 	}
-	if ( spawnArgs.GetBool ( "spike" ) && !IsBound()) {
-			//(ent->IsType( idPlayer::GetClassType()))
-		// Attempt to stick to an entity (will not bind to the world)
-		BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
-		player->AddProjectileHits(1);
-		player->AddProjectileHits(1);
-		//gameLocal.Printf("checking");
-		if(player->GetProjectileHits() >= 10){
-			//gameLocal.Printf("should Explode");
-			spawnArgs.SetBool("detonate_on_fuse", 1);
-			//projectileFlags.detonate_on_actor;
-			//Event_Explode();
-			Explode( &collision, true, ignore = NULL);
-			player->SetProjectileHits();
-		} 
-		//physicsObj.PutToRest();
-
-		// Do not process any further (no bouncing, no exploding on impact)
-		return true;
-	}
-
-
-
-
-
-
-
-
+	
  	// projectiles can apply an additional impulse next to the rigid body physics impulse
 // RAVEN BEGIN
 // abahr: added call to SkipDamageImpulse changed where push comes from
@@ -833,6 +806,29 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 
 	//Apply any impact force if the necessary
 	//ApplyImpactForce(ent, collision, dir);
+	if( spawnArgs.GetBool( "fire_stick" ) ){
+	 BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
+	 //Unbind();
+	 
+	 return true;	
+ }
+ if ( spawnArgs.GetBool ( "spike" ) ) {
+		
+		BindToJoint( ent, CLIPMODEL_ID_TO_JOINT_HANDLE( collision.c.id ), true);
+		
+		player->AddProjectileHits(1);
+		//gameLocal.Printf("checking");
+		if(player->GetProjectileHits() >= 10){
+			//gameLocal.Printf("should Explode");
+			spawnArgs.SetBool("detonate_on_fuse", 1);
+			Unbind(); 
+			Explode( &collision, true, ignore = NULL);
+			player->SetProjectileHits();
+		}
+		
+		return true;
+	}
+
  
 	// MP: projectiles open doors
 	if ( gameLocal.isMultiplayer && ent->IsType( idDoor::GetClassType() ) && !static_cast< idDoor * >(ent)->IsOpen() && !ent->spawnArgs.GetBool( "no_touch" ) ) {

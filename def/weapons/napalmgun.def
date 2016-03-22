@@ -259,7 +259,7 @@ entityDef projectile_napalm
 	"model"						"models/weapons/napalmgun/flame_gun_globsmall.ase"
 	"def_damage"				"damage_napalmDirect"
 	"def_splash_damage"			"damage_napalmSplash"	
-
+	"def_emit_damage"			"damage_napalmGlobEmit"
 	"speed"						"20"
 	"angular_velocity"			"-60 5 1"
 	"settle_duration"			"0.08"
@@ -269,13 +269,13 @@ entityDef projectile_napalm
 	"contact_friction"			"10"
 	//"bounce"					".65"
 	"gravity"					"0"
-	"fuse"						"0.3"
+	"fuse"						"2"
 								
-	"detonate_on_fuse"			"1"
+	"detonate_on_fuse"			"0"
 	"detonate_on_death"			"0"
 	"detonate_on_world"			"0"
 	"detonate_on_actor"			"0"
-								
+	"fire_stick"				"1"							
 	"impact_gib"				"1"
 	"decal_size"				"75"
 
@@ -322,7 +322,7 @@ entityDef impact_napalm_projectile
 {
 	//"inherit"	"projectile_grenade"
 	"spawnclass"				"idProjectile"
-	"size"						"1 1 1"
+	"size"						"10 10 10"
 	"noshadows"					"1"
 	"clipmask_largeshot"		"0"
 	"no_contents"				"0"
@@ -331,10 +331,10 @@ entityDef impact_napalm_projectile
 	
 	"fuse"						"6.0"
 	"fuse_random"				"0.4"
-	"speed"						"1"
+	"speed"						"100"
 	"gravity"					"1.2"
 	"remove_time"				"100"
-
+	"fire_stick"				"1"
 	"angular_velocity"			"-10 5 1"
 
 	"linear_friction"			"0"
@@ -388,8 +388,8 @@ entityDef damage_napalmSplash
 
 entityDef damage_napalmGlobEmit
 {
-	"damage"					"0"
-	"radius"					"140"
+	"damage"					"10"
+	"radius"					"100"
 	"attackerDamageScale"		"1.0"
 	"knockback"					"0"
 	"gib"						"0"
