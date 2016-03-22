@@ -435,9 +435,9 @@ entityDef hitscan_zoomed_bullet_mp
 entityDef damage_machinegun_mp
 {
 	"inherit"					"damage_bullet"
-	"damage"					"80"
+	"damage"					"120"
 	"damage_flesh"					"7"
-	"damage_team"					"5"
+	"damage_team"					"80"
 	"knockback"					"7"
 	"knockback_team"				"5"
 
@@ -450,9 +450,9 @@ entityDef damage_machinegun_mp
 entityDef damage_machinegun_zoom_mp
 {
 	"inherit"					"damage_machinegun_mp"
-	"damage"					"80"
+	"damage"					"120"
 	"damage_flesh"					"10"
-	"damage_team"					"7"
+	"damage_team"					"80"
 	"knockback"					"10"
 	"knockback_team"				"10"
 }

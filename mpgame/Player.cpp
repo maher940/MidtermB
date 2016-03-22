@@ -4991,7 +4991,7 @@ void idPlayer::UpdatePowerUps( void ) {
 	int j =1;
 	idPlayer *p = this;
 	
-	//p->powerupcooldown;
+	
 	this->powerupcooldown;
 	
 
@@ -5006,7 +5006,7 @@ void idPlayer::UpdatePowerUps( void ) {
 		    physicsObj.SetMaxJumpHeight(200.0);
 			//gets how long the powerup should last
 			gameLocal.Printf("%d \n",inventory.powerupEndTime[2]);
-			//minuses how long the powerup last by gametime which ends up giving how long the powerup lasts
+			
 			int timeremain = inventory.powerupEndTime[2] - gameLocal.time;
 			gameLocal.Printf("%d \n",timeremain);
 			//if its greater than 15 secs
@@ -5026,15 +5026,14 @@ void idPlayer::UpdatePowerUps( void ) {
 		physicsObj.RemoveJumpedFlag();
 	}
 	if(PowerUpActive(!POWERUP_REGENERATION)){
-		//physicsObj.DisAllowJump();
-		//physicsObj.disa
+		
 		physicsObj.DisAllowJump();
 	}
 	if( (PowerUpActive(POWERUP_CTF_MARINEFLAG) || PowerUpActive(POWERUP_CTF_STROGGFLAG) || PowerUpActive(POWERUP_CTF_ONEFLAG)) && p->currentWeapon ==10){
-		// p->isBallholder(p);
+		
 		
 		this->powerupcooldown++;
-		//powerupcooldown++;
+		
 		this->physicsObj.SetMaxJumpHeight( 200);
 		
 		if(this->powerupcooldown%50 == 0){

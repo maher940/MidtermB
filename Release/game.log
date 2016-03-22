@@ -1,184 +1,15 @@
-﻿Build started 3/21/2016 9:38:37 PM.
+﻿Build started 3/21/2016 10:30:17 PM.
      1>Project "C:\Users\Jacob\IT266\quake4\game.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "C:\Users\Jacob\IT266\quake4\Release\game.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /Ox /Ob1 /Oi /Oy- /D NDEBUG /D _WINDOWS /D _FINAL /D GAME_DLL /D Q4SDK /D _VC80_UPGRADE=0x0710 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS- /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /GR /Yu /Fp"C:\Users\Jacob\IT266\quake4\Release\game/game.pch" /Fo"C:\Users\Jacob\IT266\quake4\Release\game/" /Fd"C:\Users\Jacob\IT266\quake4\Release\gamex86.pdb" /Gd /TP /analyze- /errorReport:prompt game\gamesys\SysCmds.cpp
-         SysCmds.cpp
-     1>game\gamesys\SysCmds.cpp(2): warning C4627: '#include "../../idlib/precompiled.h"': skipped when looking for precompiled header use
-                 Add directive to 'precompiled header (.h) file' or rebuild precompiled header
-     1>game\gamesys\SysCmds.cpp(814): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(325) : see declaration of 'sscanf'
-     1>game\gamesys\SysCmds.cpp(1680): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+         All outputs are up-to-date.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Jacob\IT266\quake4\Release\game.dll) does not match the Linker's OutputFile property value (C:\Users\Jacob\IT266\quake4\Release\SPGamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(game) does not match the Linker's OutputFile property value (SPGamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jacob\IT266\quake4\Release\SPGamex86.dll" /INCREMENTAL:NO /NOLOGO C:\Users\Jacob\IT266\quake4\Release\idLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\game\game.def" /MANIFEST /ManifestFile:"C:\Users\Jacob\IT266\quake4\Release\game.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Jacob\IT266\quake4\Release\gamex86.pdb" /MAP:"C:\Users\Jacob\IT266\quake4\Release\gamex86.map" /MAPINFO:EXPORTS /STACK:"4194304" /LARGEADDRESSAWARE /OPT:REF /OPT:ICF /TLBID:1 /BASE:"0x20000000" /DYNAMICBASE:NO /MACHINE:X86 /DLL C:\Users\Jacob\IT266\quake4\Release\game/Actor.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AF.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AFEntity.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/BrittleFracture.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Camera.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/ClientAFEntity.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Effect.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Entity.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/FreeView.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Game_Debug.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Game_local.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Game_Log.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Game_network.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/GameEdit.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Healing_Station.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Icon.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/IconManager.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/IK.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Instance.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Item.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Light.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/LipSync.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Misc.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Moveable.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Mover.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/MultiplayerGame.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Playback.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Player_Cheats.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Projectile.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Pvs.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/SecurityCamera.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Sound.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/SplineMover.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Target.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/TramGate.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Trigger.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WorldSpawn.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AAS.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AAS_debug.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AAS_Find.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AAS_pathing.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AAS_routing.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AAS_tactical.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Actions.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Announcements.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Debug.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_events.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Manager.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Medic.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Move.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_pathing.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_States.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Tactical.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/AI_Util.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Berserker.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_BossBuddy.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_BossMakron.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_ConvoyGround.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_ConvoyHover.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_FailedTransfer.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Fatty.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Gladiator.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Grunt.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Gunner.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Harvester.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_HarvesterDispersal.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_HeavyHoverTank.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_IronMaiden.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_LightTank.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_NetworkGuardian.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_RepairBot.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Scientist.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Sentry.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_SlimyTransfer.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_StreamProtector.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_StroggFlyer.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_StroggHover.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_StroggMarine.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_TeleportDropper.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_Turret.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Monster_TurretFlying.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/spawner.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleAI.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Anim.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Anim_Blend.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Anim_Import.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Anim_Testmodel.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/ClientEffect.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/ClientEntity.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/ClientModel.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/ClientMoveable.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Class.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/DebugGraph.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Event.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/SaveGame.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/State.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/SysCmds.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/SysCvar.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Clip.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Force.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Force_Constant.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Force_Drag.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Force_Field.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Force_Spring.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Actor.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_AF.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Base.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Monster.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Parametric.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Particle.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Player.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_RigidBody.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_Static.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_StaticMulti.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Physics_VehicleMonster.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Push.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Player.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Player_States.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/PlayerView.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Script_Compiler.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Script_Interpreter.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Script_Program.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Script_Thread.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/ScriptFuncUtility.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Vehicle.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Vehicle_DropPod.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Vehicle_Walker.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleAnimated.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleController.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleDriver.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleMonster.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleParts.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehiclePosition.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleRigid.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleSpline.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VehicleStatic.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Weapon.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponBlaster.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponDarkMatterGun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponGauntlet.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponGrenadeLauncher.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponHyperblaster.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponLightningGun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponMachinegun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponNailgun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponNapalmGun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponRailgun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponRocketLauncher.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/WeaponShotgun.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Buying.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/CTF.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/GameState.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/Tourney.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/VoiceComms.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/StatEvent.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/StatManager.obj
-         C:\Users\Jacob\IT266\quake4\Release\game/StatWindow.obj
-         C:\Users\Jacob\IT266\quake4\Release\idlib.lib /MACHINE:I386 /fixed:no 
-            Creating library C:\Users\Jacob\IT266\quake4\Release\SPGamex86.lib and object C:\Users\Jacob\IT266\quake4\Release\SPGamex86.exp
+         All outputs are up-to-date.
          game.vcxproj -> C:\Users\Jacob\IT266\quake4\Release\game.dll
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Jacob\IT266\quake4\Release\SPGamex86.dll;#2" /manifest C:\Users\Jacob\IT266\quake4\Release\game.dll.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "C:\Users\Jacob\IT266\quake4\Release\game.unsuccessfulbuild".
          Touching "C:\Users\Jacob\IT266\quake4\Release\game.lastbuildstate".
@@ -186,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.93
+Time Elapsed 00:00:00.31
