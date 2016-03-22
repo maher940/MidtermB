@@ -4500,7 +4500,7 @@ float idPlayer::PowerUpModifier( int type ) {
 		
 		switch ( type ) {
 			case PMOD_SPEED:	
-				mod *= 1.5f;
+				mod *= 2.0f;
 				break;
 		}
 	}
